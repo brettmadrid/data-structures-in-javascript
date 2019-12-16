@@ -95,13 +95,38 @@ class DoublyLinkedList {
       return this;
     }
 
+    // gets node at index position
+    get(index) {
+      if (index < 0 || index >= this.length) return null;
+      let counter = 0;
+      if (index <= Math.floor(this.length / 2)) {
+        console.log("working from start")
+        let currentNode = this.head;
+        while (counter !== index) {
+          currentNode = currentNode.next;
+          counter++;
+        }
+        return currentNode.val;
+      } else {
+        console.log("working from end")
+        counter = this.length - 1;
+        let currentNode = this.tail;
+        while (counter !== index) {
+          currentNode = currentNode.prev;
+          counter--;
+        }
+        return currentNode.val;
+      }
+    }
+
 }
 
 const list = new DoublyLinkedList();
-list.push(99)
-console.log(list)
-list.unshift(98)
-console.log(list)
+list.push("Ethan")
+list.push("Dad")
+list.push("Brett")
+list.push("Neo")
+console.log(list.get(1))
 
 
 
