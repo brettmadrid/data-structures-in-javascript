@@ -106,7 +106,7 @@ class DoublyLinkedList {
           currentNode = currentNode.next;
           counter++;
         }
-        return currentNode.val;
+        return currentNode;
       } else {
         console.log("working from end")
         counter = this.length - 1;
@@ -115,7 +115,7 @@ class DoublyLinkedList {
           currentNode = currentNode.prev;
           counter--;
         }
-        return currentNode.val;
+        return currentNode;
       }
     }
 
