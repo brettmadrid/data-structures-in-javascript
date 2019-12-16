@@ -129,6 +129,20 @@ class DoublyLinkedList {
       return false;
     }
 
+    insert(index, val) {
+      if (index < 0 || index >= this.length) return false;
+      if (index === 0) return this.unshift(val);
+      if (index === this.length) return this.push(val);
+      let newNode = new Node(val);
+      let beforeNode = this.get(index-1);
+      let afterNode = beforeNode.next;
+      beforeNode.next = newNode;
+      newNode.prev = beforeNode;
+      newNode.next = afterNode;
+      afterNode.prev = newNode;
+      this.length++;
+      return true;
+    }
 }
 
 const list = new DoublyLinkedList();
@@ -136,7 +150,8 @@ list.push("Ethan")
 list.push("Dad")
 list.push("Brett")
 list.push("Neo")
-console.log(list.set(9, "Eitan"))
+console.log(list.insert(3, "Eitan"))
+console.log(list)
 
 
 
