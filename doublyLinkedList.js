@@ -13,6 +13,7 @@ class DoublyLinkedList {
     this.length = 0;
   }
 
+  // Add to end/tail
   push(val) {
   /*
     1. create a new node with the value passed in to the function
@@ -34,6 +35,7 @@ class DoublyLinkedList {
     return this;
   }
 
+  // Remove from tail
   pop() {
     /*
       1. if no tail, return undefined
@@ -60,13 +62,32 @@ class DoublyLinkedList {
     }
   }
 
+  // Remove from head
+  shift() {
+    if (!this.head) return undefined;
+    else {
+      const oldHead = this.head;
+      if (this.length === 1) {
+        this.head = null;
+        this.tail = null;
+      } else {
+        this.head = oldHead.next;
+        this.head.prev = null;
+        oldHead.next = null;
+      }
+      this.length--;
+      return oldHead;
+    }
+  }
+
+
+
 }
 
 const list = new DoublyLinkedList();
 list.push(99)
-list.push(100)
 console.log(list)
-console.log(list.pop(100))
+list.shift()
 console.log(list)
 
 
