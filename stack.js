@@ -26,20 +26,25 @@ class Stack {
   }
 
   pop() {
-    if (!this.first) {
-      return null
-    }
-    const value = this.first.value;
-    if (this.size === 1) {
+    if (!this.first) return null;
+    const popValue = this.first.value;
+    if (this.first === this.last) {
       this.first = null;
-      this.tail = null;
+      this.last = null;
     } else {
       this.first = this.first.next;
     }
     this.size--;
-    return value;
+    return popValue;
   }
 
 }
 
 
+let stack = new Stack();
+console.log(stack.push("First"))
+console.log(stack.push("Second"))
+console.log(stack.push("Third"))
+console.log(stack.pop())
+console.log(stack.pop())
+console.log(stack.pop())
