@@ -143,13 +143,13 @@ class SinglyLinkedList {
 
   
 
-let list = new SinglyLinkedList();
-list.push("time")
-list.push("to")
-list.push("take")
-list.push("a")
-list.push("break")
-// list.pop()
-// list.tail
-// list.unshift("It is")
-list.get(4)
+// let list = new SinglyLinkedList();
+// list.push("time")
+// list.push("to")
+// list.push("take")
+// list.push("a")
+// list.push("break")
+// // list.pop()
+// // list.tail
+// // list.unshift("It is")
+// list.get(4)
