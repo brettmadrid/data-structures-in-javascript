@@ -23,16 +23,18 @@ class HashTable {
     return this.keyMap;
   }
 
-  // get(key) {
-  //   const hashValue = this._hash(key)
-  //   let returnVal = "Not Found!"
-  //   for (let i = 0; i < this.keyMap[hashValue].length; i++) {
-  //     if (this.keyMap[hashValue][i] === )
-  //   }
-  // }
+  get(key) {
+    const hashValue = this._hash(key);
+    const returnArr = this.keyMap[hashValue];
+    for (let i = 0; i < returnArr.length; i++) {
+      if (returnArr[i][0] === key) return returnArr[i][1];
+    }
+    return "not found!";
+  }
 }
 
 ht = new HashTable();
 ht.set("Jennifer", "shopping");
 ht.set("Brett", "javascript");
-console.log(ht.set("Anna", "looking hot"));
+ht.set("Anna", "looking hot");
+console.log(ht.get("Anna"));
