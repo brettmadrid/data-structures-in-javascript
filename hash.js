@@ -15,12 +15,11 @@ class HashTable {
   }
 
   set(key, value) {
-    const hashValue = this._hash(key);
-    if (!this.keyMap[hashValue]) {
-      this.keyMap[hashValue] = [value];
-    } else {
-      this.keyMap[hashValue].push(value);
+    const index = this._hash(key);
+    if (!this.keyMap[index]) {
+      this.keyMap[index] = [];
     }
+    this.keyMap[index].push([key, value]);
     return this.keyMap;
   }
 
