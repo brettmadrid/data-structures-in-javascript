@@ -31,10 +31,22 @@ class HashTable {
     }
     return "not found!";
   }
+
+  getKeys() {
+    let keys = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          keys.push(this.keyMap[i][j][0]);
+        }
+      }
+    }
+    return keys;
+  }
 }
 
 ht = new HashTable();
 ht.set("Jennifer", "shopping");
 ht.set("Brett", "javascript");
 ht.set("Anna", "looking hot");
-console.log(ht.get("Anna"));
+console.log(ht.keys());
