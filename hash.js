@@ -33,20 +33,36 @@ class HashTable {
   }
 
   getKeys() {
-    let keys = [];
+    let keys = new Set();
     for (let i = 0; i < this.keyMap.length; i++) {
       if (this.keyMap[i]) {
         for (let j = 0; j < this.keyMap[i].length; j++) {
-          keys.push(this.keyMap[i][j][0]);
+          keys.add(this.keyMap[i][j][0]);
         }
       }
     }
     return keys;
   }
+
+  getValues() {
+    let values = new Set();
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          values.add(this.keyMap[i][j][1]);
+        }
+      }
+    }
+    return values;
+  }
 }
 
 ht = new HashTable();
-ht.set("Jennifer", "shopping");
-ht.set("Brett", "javascript");
-ht.set("Anna", "looking hot");
-console.log(ht.keys());
+ht.set("pawn", "1");
+ht.set("Knight", "3");
+ht.set("Bishop", "3");
+ht.set("Rook", "5");
+ht.set("Queen", "10");
+ht.set("King", "0");
+console.log(ht.getKeys());
+console.log(ht.getValues());
